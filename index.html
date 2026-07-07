@@ -21,12 +21,116 @@
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
+        .cat {
+            position: relative;
+            width: 220px;
+            height: 180px;
+            margin: 20px auto 0;
+        }
+        .ear {
+            position: absolute;
+            width: 55px;
+            height: 55px;
+            background: #262626;
+            top: 5px;
+            border-radius: 8px 8px 2px 2px;
+            transform: rotate(45deg);
+        }
+        .ear-left {
+            left: 42px;
+        }
+        .ear-right {
+            right: 42px;
+        }
+        .head {
+            position: absolute;
+            width: 150px;
+            height: 130px;
+            background: #303030;
+            border-radius: 50%;
+            top: 28px;
+            left: 35px;
+        }
+        .eye {
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            background: #fff;
+            border-radius: 50%;
+            top: 46px;
+            animation: blink 4s infinite;
+            transform-origin: center;
+        }
+        .eye::after {
+            content: "";
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #1a1a1a;
+            top: 5px;
+            left: 5px;
+        }
+        .eye-left {
+            left: 40px;
+        }
+        .eye-right {
+            right: 40px;
+        }
+        .nose {
+            position: absolute;
+            width: 14px;
+            height: 10px;
+            background: #ff8aa8;
+            border-radius: 50%;
+            left: 68px;
+            top: 75px;
+        }
+        .mouth {
+            position: absolute;
+            width: 34px;
+            height: 18px;
+            border-bottom: 3px solid #f4f4f9;
+            border-radius: 0 0 20px 20px;
+            left: 58px;
+            top: 86px;
+        }
+        .tail {
+            position: absolute;
+            width: 90px;
+            height: 20px;
+            background: #303030;
+            border-radius: 20px;
+            right: -26px;
+            bottom: 28px;
+            transform-origin: left center;
+            animation: wag 1.2s ease-in-out infinite;
+        }
+        @keyframes blink {
+            0%, 45%, 100% { transform: scaleY(1); }
+            48%, 52% { transform: scaleY(0.1); }
+        }
+        @keyframes wag {
+            0%, 100% { transform: rotate(20deg); }
+            50% { transform: rotate(-10deg); }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Hello World!</h1>
         <p>My website is officially running on GitHub Pages.</p>
+        <div class="cat" role="img" aria-label="Animated cat illustration">
+            <div class="ear ear-left"></div>
+            <div class="ear ear-right"></div>
+            <div class="head">
+                <div class="eye eye-left"></div>
+                <div class="eye eye-right"></div>
+                <div class="nose"></div>
+                <div class="mouth"></div>
+            </div>
+            <div class="tail"></div>
+        </div>
     </div>
 </body>
 </html>
