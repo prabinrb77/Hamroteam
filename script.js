@@ -48,12 +48,17 @@
     /* ---------------- Scroll-linked intro dismissal ---------------- */
 
     const intro = document.getElementById('intro');
-    const fadeDistance = window.innerHeight * 0.9;
+
+    function fadeDistance() {
+        const vh = Math.max(window.innerHeight, document.documentElement.clientHeight, 400);
+        return vh * 0.9;
+    }
+
     let ticking = false;
 
     function updateIntro() {
         const y = window.scrollY;
-        const progress = Math.min(y / fadeDistance, 1);
+        const progress = Math.min(y / fadeDistance(), 1);
         intro.style.opacity = String(1 - progress);
         intro.style.transform = `translateY(${progress * -40}px)`;
         intro.style.pointerEvents = progress >= 1 ? 'none' : 'auto';
@@ -212,7 +217,7 @@
         ensureAudio();
         if (audioCtx.state === 'suspended') audioCtx.resume();
         ambienceStarted = true;
-        setAmbientVolume(1 - Math.min(window.scrollY / fadeDistance, 1));
+        setAmbientVolume(1 - Math.min(window.scrollY / fadeDistance(), 1));
 
         if (period === 'morning') {
             startWind();

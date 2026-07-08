@@ -4,7 +4,7 @@
     {
       "name": "hamroteam-site",
       "runtimeExecutable": "/usr/bin/perl",
-      "runtimeArgs": ["-MCwd", "-e", "print \"perl-ok cwd=\", Cwd::getcwd(), \"\\n\";"],
+      "runtimeArgs": ["/private/tmp/claude-501/-Users-prabin-Documents-GitHub-Hamroteam/bdcaf32a-d7a1-4177-b20c-2aeca5612098/scratchpad/site/serve.pl"],
       "port": 4321
     }
   ]
