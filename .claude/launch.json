@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "hamroteam-site",
+      "runtimeExecutable": "/usr/bin/perl",
+      "runtimeArgs": ["-MCwd", "-e", "print \"perl-ok cwd=\", Cwd::getcwd(), \"\\n\";"],
+      "port": 4321
+    }
+  ]
+}
