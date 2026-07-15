@@ -54,8 +54,6 @@
         return vh * 0.9;
     }
 
-    let ticking = false;
-
     function updateIntro() {
         const y = window.scrollY;
         const progress = Math.min(y / fadeDistance(), 1);
@@ -63,15 +61,9 @@
         intro.style.transform = `translateY(${progress * -40}px)`;
         intro.style.pointerEvents = progress >= 1 ? 'none' : 'auto';
         setAmbientVolume(1 - progress);
-        ticking = false;
     }
 
-    window.addEventListener('scroll', () => {
-        if (!ticking) {
-            requestAnimationFrame(updateIntro);
-            ticking = true;
-        }
-    });
+    window.addEventListener('scroll', updateIntro, { passive: true });
     updateIntro();
 
     /* ---------------- Procedural ambient audio ---------------- */
